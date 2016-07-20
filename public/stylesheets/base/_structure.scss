@@ -1,0 +1,139 @@
+// 
+// * {
+//   border-spacing: border-box;
+//   margin:0;
+//   padding:0;
+// }
+// body {
+//   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+// }
+// a {
+//   color: #00B7FF;
+// }
+
+/* tracer is showing some debug info - bindings, etc */
+.panel.tracer {
+  display:none;
+  margin:0 1em;
+}
+.tracer span {
+  display: inline-block;
+  margin-right:2em;
+}
+
+post-block {
+  display:block;
+}
+
+/* ERROR MESSAGES */
+.has-error label {
+  color:red;
+}
+.has-error input {
+  border-width: 2px;
+}
+.error-block{
+  margin-top:1em;
+}
+.help-block {
+  color:red;
+  font-weight:bold;
+}
+.help-block p:before {
+  content: '* ';
+}
+
+
+
+/* POST SECTION */
+.post-cell {
+  border:solid #ccc 1px;
+  background-color: #f6f6f6;
+  padding:1em;
+  margin-bottom:2em;
+}
+.post-cell .post-img {
+  width:100%;
+  min-width:100px;
+  max-width:205px;
+}
+.post-cell .title-row {
+  font-weight:bold;
+  margin-bottom:.5em;
+}
+.post-cell .title {
+  font-size:1.2em;
+}
+.post-cell .vote-count {
+  white-space: nowrap;
+}
+.btn-no-btn,
+.post-cell .vote-count button {
+  background-color: transparent;
+  border:none;
+}
+.post-cell .author {
+  text-align:right;
+}
+.post-cell .description {
+  font-size:.9em;
+}
+.post-cell .post-action {
+  font-size:.9em;
+  margin-top:1em;
+}
+
+
+/* COMMENTS WITHIN POSTS */
+.comment-panel {
+  margin-top:20px;
+}
+.comment-panel .form-inline {
+  margin-left:1em;
+}
+.comment-cell.well {
+  background-color: #fff;
+}
+
+
+/* ADD POST PANEL */
+.add-panel {
+  padding:2em;
+  background-color: #eee;
+}
+
+
+/* NAV */
+nav {
+  background-color: #ccc;
+  padding:1em 2em 1.5em 2em;
+  font-size:1.6rem;
+  color:white;
+}
+nav > span {
+  display: inline-block;
+  margin-right:2rem;
+}
+nav .branding {
+  font-size:1.8em;
+  vertical-align: -10%;
+  /*line-height:2em;*/
+}
+nav button.submit-post {
+  background-color: transparent;
+  border-color:transparent;
+  padding:3px 6px;
+}
+.submit-post:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px #999;
+  box-shadow: 1px 1px 1px 1px #999;
+  border-radius:3px;
+}
+nav input {
+  color:#666;
+  padding:.3em 1em;
+  border-radius:3px;
+}
+nav .form-control {
+  color:#666;
+}

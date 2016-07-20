@@ -1,0 +1,43 @@
+
+
+/* triggered by opening/closing the add post panel */
+.post-listing.ng-hide-remove{
+  animation: zoomInDown .5s;
+}
+.add-panel.ng-hide-remove{
+  animation: zoomInDown .5s;
+}
+
+/*
+.post-listing.ng-hide-add{
+  animation: fadeOutDown .5s;
+}
+.add-panel.ng-hide-add{
+  animation: fadeOutDown .5s;
+}*/
+
+
+/* triggered by filtering the ng-repeat */
+.post-cell.ng-move {
+  animation:fadeIn .75s;
+}
+.post-cell.ng-move-active {
+  animation:pulse 1s;
+}
+
+
+/* triggered by search (filter) changes on ng-repeat */
+.post-cell.ng-enter {
+  animation:flipInY .5s;
+}
+.post-cell.ng-leave {
+  animation:flipOutY .5s;
+}
+
+/* triggered by opening/closing the add comment panel for listing or additions */
+.comment-panel.ng-hide-remove {
+  animation:fadeIn 1s;
+}
+.comment-panel.ng-hide {
+  animation:fadeOut .5s;
+}

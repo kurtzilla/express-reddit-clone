@@ -1,0 +1,94 @@
+<!-- POST FORM CONTAINER -->
+ <div ng-show="showit" class="panel add-panel">
+  <form name="postForm" novalidate ng-submit="submitPost(postForm);">
+    <div class="input-controls">
+      <div class="form-group"
+          ng-class="{ 'has-error' : commentForm.p_title.$invalid && commentForm.p_title.$touched,
+                      'has-success': commentForm.p_title.$valid && commentForm.p_title.$touched}">
+        <label for="title">Title</label>
+        <input type="text"
+              class="form-control"
+              id="p_title"
+              name="p_title"
+              placeholder="Title"
+              ng-model="postForm.poster.title"
+              required minlength=1 maxlength=512>
+      </div>
+      <div class="form-group"
+          ng-class="{ 'has-error' : commentForm.p_author.$invalid && commentForm.p_author.$touched,
+                      'has-success': commentForm.p_author.$valid && commentForm.p_author.$touched}">
+        <label for="p_author">Author</label>
+        <input type="text"
+              class="form-control"
+              id="p_author"
+              name="p_author"
+              placeholder="Author"
+              ng-model="postForm.poster.author"
+              required minlength=3 maxlength=256>
+      </div>
+      <div class="form-group"
+          ng-class="{ 'has-error' : commentForm.p_image.$invalid && commentForm.p_image.$touched,
+                      'has-success': commentForm.p_image.$valid && commentForm.p_image.$touched}">
+        <label for="p_image">Image</label>
+        <input type="url"
+              class="form-control"
+              id="p_image"
+              name="p_image"
+              placeholder="Image"
+              ng-model="postForm.poster.image"
+              required minlength=3 maxlength=1024>
+      </div>
+      <div class="form-group"
+          ng-class="{ 'has-error' : commentForm.p_description.$invalid && commentForm.p_description.$touched,
+                      'has-success': commentForm.p_description.$valid && commentForm.p_description.$touched}">
+        <label for="p_description">Description</label>
+        <textarea class="form-control"
+                  id="p_description"
+                  name="p_description"
+                  placeholder="Description"
+                  ng-model="postForm.poster.description"
+                  required minlength=3 maxlength=2048></textarea>
+      </div>
+    </div><!-- End of input controls -->
+
+    <!-- ERROR BLOCK -->
+    <div class="error-block"
+        ng-show="!postForm.$valid">
+      <div class="help-block"
+            ng-messages="postForm.p_title.$error"
+            ng-show="postForm.p_title.$error && postForm.p_title.$touched">
+        <p ng-message="required">Title is required.</p>
+        <p ng-message="minlength">Title must be at least 1 characters.</p>
+        <p ng-message="maxlength">Title cannot be longer than 512 characters.</p>
+      </div>
+      <div class="help-block"
+            ng-messages="postForm.p_author.$error"
+            ng-show="postForm.p_author.$error && postForm.p_author.$touched">
+        <p ng-message="required">Author is required.</p>
+        <p ng-message="minlength">Author must be at least 3 characters.</p>
+        <p ng-message="maxlength">Author cannot be longer than 256 characters.</p>
+      </div>
+      <div class="help-block"
+          ng-messages="postForm.p_image.$error"
+          ng-show="postForm.p_image.$error && postForm.p_image.$touched">
+        <p ng-message="url">Image must be a valid url.</p>
+        <p ng-message="required">Image is required.</p>
+        <p ng-message="minlength">Image must be at least 3 characters.</p>
+        <p ng-message="maxlength">Image cannot be longer than 1024 characters.</p>
+      </div>
+      <div class="help-block"
+            ng-messages="postForm.p_description.$error"
+            ng-show="postForm.p_description.$error && postForm.p_description.$touched">
+        <p ng-message="required">Description is required.</p>
+        <p ng-message="minlength">Description must be at least 3 characters.</p>
+        <p ng-message="maxlength">Description cannot be longer than 2048 characters.</p>
+      </div>
+    </div><!-- end error-block -->
+
+    <button ng-show="postForm.$valid"
+            type="submit"
+            class="btn btn-sm btn-default">Add Post</button>
+
+  </form>
+</div>
+<!-- END POST FORM CONTAINER -->

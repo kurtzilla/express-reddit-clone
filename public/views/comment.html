@@ -1,0 +1,69 @@
+<!-- COMMENT section -->
+<div class="comment-section">
+
+  <!-- Comment listing -->
+  <div ng-show="viewService.view.selectedPostId === post.id && viewService.view.showCommentListing"
+      class="comment-panel">
+    <div ng-repeat="comment in post.comments | orderBy: comment.dtcreated: true "
+         class="comment-cell well">
+      <strong>{{comment.author}}</strong> <span>{{comment.text}}</span>
+    </div>
+  </div><!-- end comment listing -->
+
+  <!-- COMMENT ADD Panel -->
+  <div ng-show="viewService.view.selectedPostId === post.id && viewService.view.showAddComment"
+      class="comment-panel">
+    <div class="row">
+      <form name="commentForm"
+            class="form-inline"
+            novalidate
+            ng-submit="submitComment(commentForm, post.id);">
+        <div class="form-group"
+            ng-class="{ 'has-error' : commentForm.author.$invalid && commentForm.author.$touched,
+                        'has-success': commentForm.author.$valid && commentForm.author.$touched}">
+          <label for="author">Author</label>
+          <input type="text"
+                 class="form-control"
+                 id="author"
+                 name="author"
+                 placeholder="Author"
+                 ng-model="commentForm.comment.author"
+                 required minlength=3 maxlength=256>
+        </div>
+        <div class="form-group"
+            ng-class="{ 'has-error' : commentForm.text.$invalid && commentForm.text.$touched,
+                        'has-success': commentForm.text.$valid && commentForm.text.$touched}">
+          <label for="text">Text</label>
+          <input type="text"
+              class="form-control"
+              id="text"
+              name="text"
+              placeholder="Comment"
+              ng-model="commentForm.comment.text"
+              required minlength=3 maxlength=256>
+        </div>
+        <button ng-show="commentForm.$valid"
+                type="submit"
+                class="btn btm-sm btn-default">Add Comment</button>
+
+        <div class="error-block"
+            ng-show="!commentForm.$valid">
+          <div class="help-block"
+                ng-messages="commentForm.author.$error"
+                ng-show="commentForm.author.$error && commentForm.author.$touched">
+            <p ng-message="required">Author is required.</p>
+            <p ng-message="minlength">Author must be at least 3 characters.</p>
+            <p ng-message="maxlength">Author cannot be longer than 256 characters.</p>
+          </div>
+          <div class="help-block"
+              ng-messages="commentForm.text.$error"
+              ng-show="commentForm.text.$error && commentForm.text.$touched">
+            <p ng-message="required">Text is required.</p>
+            <p ng-message="minlength">Text must be at least 3 characters.</p>
+            <p ng-message="maxlength">Text cannot be longer than 256 characters.</p>
+          </div>
+        </div>
+      </form>
+    </div><!-- end row -->
+  </div><!-- end of Show Add Comment section -->
+</div><!-- end comment section -->
