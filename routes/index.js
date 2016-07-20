@@ -1,8 +1,8 @@
+
 require('dotenv');
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
-
 
 /* API */
 router.get('/api/posts', function(req, res, next) {
@@ -46,13 +46,6 @@ router.post('/api/posts', function(req, res, next) {
     res.redirect('/api/posts/'+ id);
   });
 });
-
-// router.get('/api/comments', function(req, res, next) {
-//   return knex.select().table('comments')
-//   .then(function(comments){
-//     res.status(200).send(comments);
-//   });
-// });
 
 router.get('/api/comments/:id', function(req, res, next) {
   return knex.select().table('comments').where('id', req.params.id)
