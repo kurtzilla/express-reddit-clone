@@ -2,7 +2,7 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
 
-  return Promise.join(
+  return Promise.all([
     knex('comments').del(),
     knex('posts').del(),
 
@@ -94,5 +94,5 @@ exports.seed = function(knex, Promise) {
       text: 'Let\'s get some english muffins'
     })
 
-  );
+  ]);
 };
